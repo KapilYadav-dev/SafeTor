@@ -1,0 +1,25 @@
+{
+  "name": "safetor",
+  "version": "1.0.0",
+  "description": "SafeTor to search torrent without any risk.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KapilYadav-dev/SafeTor.git"
+  },
+  "author": "mrkaydev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KapilYadav-dev/SafeTor/issues"
+  },
+  "homepage": "https://github.com/KapilYadav-dev/SafeTor#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
+    "request": "^2.88.2"
+  }
+}
