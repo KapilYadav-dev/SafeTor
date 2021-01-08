@@ -2,13 +2,14 @@ const express=require('express')
 const app=express()
 const request = require('request')
 const cheerio = require('cheerio')
+var path = require('path');
 var baseurl="https://torrentzeu.org/data.php?q="
 var port=process.env.PORT||8080
 var data=[]
 var titleList=[],seedsList=[],leechesList=[],sizeList=[],magnetList=[]
 
 app.get('/',(req,res)=>{
-    res.send('Im working...');
+    res.sendFile(path.join(__dirname + '/index.html'));
 })
 app.get('/search/:query',(req,res)=>{
     var url=baseurl+req.params.query
