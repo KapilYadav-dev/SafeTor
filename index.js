@@ -2,16 +2,22 @@ const express=require('express')
 const app=express()
 const request = require('request')
 const cheerio = require('cheerio')
+const rateLimit = require("express-rate-limit");
 var path = require('path');
 var baseurl="https://torrentzeu.org/data.php?q="
 var port=process.env.PORT||8080
 var data=[]
 var titleList=[],seedsList=[],leechesList=[],sizeList=[],magnetList=[]
+const limiter = rateLimit({
+    windowMs:  5000,
+    max: 1,
+    message: "We are hosted on free server, please reduce calls."
+  })
 
 app.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname + '/index.html'));
 })
-app.get('/search/:query',(req,res)=>{
+app.get('/search/:query',limiter,(req,res)=>{
     var url=baseurl+req.params.query
     request(url,async (error,response,html)=>{
         var $=cheerio.load(html)
